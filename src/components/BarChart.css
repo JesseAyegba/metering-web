@@ -1,0 +1,8 @@
+.barChart {
+    height: 320px;
+    width: 550px;
+    border-radius: 8px;
+    border: 8px white solid;
+    background-color: white;
+    box-shadow: 0 0 10px lightgray;
+}

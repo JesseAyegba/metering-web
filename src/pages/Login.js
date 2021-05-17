@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { auth } from "../firebase";
 import "./Login.css";
 
 export default function Login() {
@@ -14,8 +15,18 @@ export default function Login() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    let email = userInput.email;
+    let password = userInput.password;
+    
+    try {
+        const userCredential = await auth.signInWithEmailAndPassword(email, password)
+        console.log(userCredential);
+        alert("User has been logged in")
+    } catch (error) {
+        alert(error.message)
+    }
   };
   return (
     <div className="login">
