@@ -5,8 +5,20 @@ import { MdDashboard, MdAudiotrack } from "react-icons/md";
 import { HiUsers } from "react-icons/hi";
 import { NavLink as Link } from "react-router-dom";
 import { GiSoundOn } from "react-icons/gi";
+import { auth } from "../firebase";
+import { useDispatch } from "react-redux";
+import { logout } from "../store/actions/authAction";
 
 export default function SideNav() {
+  const dispatch = useDispatch();
+  const handleClick = async () => {
+    try {
+      await auth.signOut();
+      dispatch(logout())
+    } catch (error) {
+      alert(error.message);
+    }
+  }
   return (
     <div className="sideNav">
       <div className="sideNav__links">
@@ -28,7 +40,7 @@ export default function SideNav() {
             Audio Uploads
           </li>
         </Link>
-        <li className="sideNav__link sideNav__link--bottom">
+        <li onClick={() => handleClick()} className="sideNav__link sideNav__link--bottom">
           <FiPower className="sideNav__icon" />
           Logout
         </li>

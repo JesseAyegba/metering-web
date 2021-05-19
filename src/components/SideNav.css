@@ -29,7 +29,8 @@
     transition: .2s ease-in;
 }
 .sideNav__link--bottom {
-    margin-top: 150px;
+    margin-top: 300px;
+    cursor: pointer;
 }
 .sideNav__link--bottom:hover {
     background-color: red;

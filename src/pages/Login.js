@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { auth } from "../firebase";
+import { logout, loginSuccess } from "../store/actions/authAction";
 import "./Login.css";
 
 export default function Login() {
@@ -7,6 +9,8 @@ export default function Login() {
     email: "",
     password: "",
   });
+
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     setUserInput({
@@ -19,13 +23,16 @@ export default function Login() {
     e.preventDefault();
     let email = userInput.email;
     let password = userInput.password;
-    
+
     try {
-        const userCredential = await auth.signInWithEmailAndPassword(email, password)
-        console.log(userCredential);
-        alert("User has been logged in")
+      const userCredential = await auth.signInWithEmailAndPassword(
+        email,
+        password
+      );
+      dispatch(loginSuccess(userCredential));
+      console.log(userCredential);
     } catch (error) {
-        alert(error.message)
+      alert(error.message);
     }
   };
   return (

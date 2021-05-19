@@ -6,16 +6,18 @@ import UserDetail from "./pages/UserDetail";
 import Login from "./pages/Login";
 import Uploads from "./pages/Uploads";
 import Users from "./pages/Users";
+import { useSelector } from "react-redux";
 
 export default function App() {
+    let auth = useSelector((globalState) => globalState.authReducer)
     return(
         <BrowserRouter>
         <Switch>
-            <Route exact path="/" component={Login} />
-            <Route exact path="/dashboard/" component={Dashboard} />
-            <Route exact path="/users/" component={Users} />
-            <Route exact path="/users/:uid" component={UserDetail} />
-            <Route exact path="/uploads/" component={Uploads} />
+            <Route exact path="/"  component={ auth ? Login : Dashboard} />
+            <Route exact path="/dashboard/" component={ auth ? Dashboard : Login } />
+            <Route exact path="/users/" component={ auth ? Users : Login } />
+            <Route exact path="/users/:uid" component={ auth ? UserDetail : Login } />
+            <Route exact path="/uploads/" component={ auth ? Uploads : Login } />
         </Switch>
         </BrowserRouter>
     )
