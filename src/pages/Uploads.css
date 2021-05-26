@@ -1,54 +1,53 @@
 .uploads {
-    display: flex;
+  display: flex;
 }
 .uploads__sideNav {
-    flex: 0.2;
+  flex: 0.2;
 }
 .uploads__content {
-    flex: 0.8;
-    background-color: var(--dash_background);
-    height: 100vh;
-    overflow: scroll
+  flex: 0.8;
+  background-color: var(--dash_background);
+  height: 100vh;
+  overflow: scroll;
 }
 .uploads__header {
-    padding: 10px 20px;
-    margin: 15px 0;
-    font-size: 25px;
-    color: var(--dark_blue);
+  padding: 10px 20px;
+  margin: 15px 0;
+  font-size: 25px;
+  color: green;
 }
 .uploads__details {
-    background-color: white;
-    width: 70vw;
-    margin: 10px auto;
-    padding: 20px 0;
-    border-radius: 8px;
-    box-shadow: 0 0 10px lightgray;
-    color: gray;
-
+  background-color: white;
+  width: 70vw;
+  margin: 10px auto;
+  padding: 20px 0;
+  border-radius: 8px;
+  box-shadow: 0 0 10px lightgray;
+  color: gray;
 }
 .uploads__detail {
-    background-color: white;
-    display: flex;
-    align-items: center;
-    /* justify-content: center; */
-    padding: 8px 20px;
-    font-size: 15px;
-    border: 1px lightgray solid;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  padding: 8px 20px;
+  font-size: 15px;
+  border: 1px lightgray solid;
 }
 .uploads__icon {
-    font-size: 30px;
-    margin-right: 50px;
-    color: #051e3e;
+  font-size: 30px;
+  margin-right: 50px;
+  color: green;
 }
 .uploads__detail p {
-    margin-right: 50px; 
-    min-width: 400px;
+  margin-right: 50px;
+  min-width: 400px;
 }
 .uploads__btn {
-    font-size: 15px;
-    color: white;
-    border: none;
-    background-color: var(--light_blue);
-    padding: 5px 20px;
-    border-radius: 20px;
+  font-size: 15px;
+  color: white;
+  border: none;
+  background-color: green;
+  padding: 5px 20px;
+  border-radius: 20px;
 }

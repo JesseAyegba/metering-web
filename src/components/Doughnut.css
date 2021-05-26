@@ -1,7 +1,15 @@
-.doughnutChart {
-    background-color: white;
-    border-radius: 8px;
-    height: 320px;
-    width: 350px;
-    box-shadow: 0 0 10px lightgray;
+.doughnutChart__dough {
+  background-color: white;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  height: 320px;
+  width: 350px;
+}
+.doughnutChart__header {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  font-size: 16px;
+  color: var(--dark_blue);
+  background-color: white;
+  padding: 4px 10px;
 }

@@ -1,15 +1,17 @@
 .header {
-    height: 50px;
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    background-color: white;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    box-shadow: 0 0 10px lightgray;
+  height: 50px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  box-shadow: 0 0 10px lightgray;
 }
 .header__text {
-    font-size: 15px;
-    margin: 0 40px;
+  font-size: 13px;
+  margin: 0 40px;
+  color: var(--dark_blue);
+  font-weight: bold;
 }

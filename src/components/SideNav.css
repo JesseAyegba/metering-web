@@ -1,42 +1,42 @@
 .sideNav {
-    background-color: var(--dark_blue);
-    width: 100%;
-    min-width: 250px;
-    padding: 40px 40px;
-    height: 100vh;
-    color: white;
+  background-color: var(--dark_blue);
+  width: 100%;
+  min-width: 250px;
+  padding: 40px 40px;
+  height: 100vh;
+  color: white;
 }
 .sideNav__links {
-    margin-top: 40px;
+  margin-top: 40px;
 }
 .sideNav__links a {
-    display: block;
-    border-radius: 8px;
-    color: white;
-    text-decoration: none;
+  display: block;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
 }
 .sideNav__links .active {
-    background-color: var(--light_blue);
+  background-color: var(--light_blue);
 }
 .sideNav__link {
-    list-style: none;
-    font-size: 15px;
-    padding: 10px 10px;
-    margin: 5px 0;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    transition: .2s ease-in;
+  list-style: none;
+  font-size: 15px;
+  padding: 6px 10px;
+  margin: 5px 0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  transition: 0.2s ease-in;
 }
 .sideNav__link--bottom {
-    margin-top: 300px;
-    cursor: pointer;
+  margin-top: 300px;
+  cursor: pointer;
 }
 .sideNav__link--bottom:hover {
-    background-color: red;
+  background-color: red;
 }
 
 .sideNav__icon {
-    margin-right: 10px;
-    font-size: 25px;
+  margin-right: 10px;
+  font-size: 25px;
 }

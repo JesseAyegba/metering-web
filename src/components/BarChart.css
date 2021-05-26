@@ -1,8 +1,15 @@
-.barChart {
-    height: 320px;
-    width: 550px;
-    border-radius: 8px;
-    border: 8px white solid;
-    background-color: white;
-    box-shadow: 0 0 10px lightgray;
+.barChart__bar {
+  background-color: white;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  height: 320px;
+  width: 550px;
+}
+.barChart__header {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  font-size: 16px;
+  color: var(--dark_blue);
+  background-color: white;
+  padding: 4px 10px;
 }
