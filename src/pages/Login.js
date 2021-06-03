@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { auth } from "../firebase";
-import { logout, loginSuccess } from "../store/actions/authAction";
+import { loginSuccess } from "../store/actions/authAction";
 import "./Login.css";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import { hideLoader, showLoader } from "../store/actions/loaderAction";
 
 export default function Login() {
   const [userInput, setUserInput] = useState({
@@ -11,6 +13,7 @@ export default function Login() {
   });
 
   const dispatch = useDispatch();
+  let loader = useSelector((globalState) => globalState.loaderReducer);
 
   const handleChange = (e) => {
     setUserInput({
@@ -25,14 +28,16 @@ export default function Login() {
     let password = userInput.password;
 
     try {
+      dispatch(showLoader());
       const userCredential = await auth.signInWithEmailAndPassword(
         email,
         password
       );
       dispatch(loginSuccess(userCredential));
-      console.log(userCredential);
+      dispatch(hideLoader());
     } catch (error) {
       alert(error.message);
+      dispatch(hideLoader());
     }
   };
   return (
@@ -58,8 +63,8 @@ export default function Login() {
             className="login__input"
           />
         </div>
-        <button className="login__btn" type="submit">
-          Login
+        <button className="login__btn" type={loader ? "button" : "submit"}>
+          {loader ? <CircularProgress style={{ color: "white" }} /> : "Login"}
         </button>
       </form>
     </div>

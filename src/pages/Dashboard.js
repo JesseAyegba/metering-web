@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { HiUsers } from "react-icons/hi";
 import BarChart from "../components/BarChart";
 import Card from "../components/Card";
 import DoughnutChart from "../components/Doughnut";
@@ -7,36 +8,29 @@ import SideNav from "../components/SideNav";
 import { audioUploads, notifications, users } from "../data/cardsData";
 import { db } from "../firebase";
 import "./Dashboard.css";
+import { Link } from "react-router-dom";
 
 export default function Dashboard() {
-  const handleClick = async () => {
-  db.collection("users").doc("mosh@gmail.com")
-      .get()
-      .then((user) => {
-        if (user.exists) {
-          console.log(user);
-        } else {
-          console.log("User does not exist");
-        }
-      })
-      .catch((error) => {
-        console.log("Something went wrong", error);
-      });
-  };
+  const [allUsers, setAllUsers] = useState([]);
+
+  useEffect(() => {
+    const getUsers = async () => {
+      try {
+        let snapShot = await db.collection("users").get();
+        let users = snapShot.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data(),
+        }));
+        setAllUsers(users);
+      } catch (errors) {
+        alert(errors);
+      }
+    };
+    getUsers();
+  }, []);
+
   return (
     <div className="dashboard">
-      <button
-        onClick={() => handleClick()}
-        style={{
-          padding: 40,
-          margin: 10,
-          backgroundColor: "blue",
-          color: "white",
-        }}
-        className="login__btnTester"
-      >
-        Click me
-      </button>
       <div className="dashboard__sideNav">
         <SideNav />
       </div>
@@ -44,8 +38,17 @@ export default function Dashboard() {
         <Header />
         <h1 className="dashboard__header">Dashboard</h1>
         <div className="dashboard__cards">
-          <Card {...users} />
-          <Card {...audioUploads} />
+          <Link to="/users/" exact>
+            <Card
+              headerText="Users"
+              value={allUsers.length}
+              icon={<HiUsers />}
+              iconColor="#04040D"
+            />
+          </Link>
+          <Link to="/uploads/" exact>
+            <Card {...audioUploads} />
+          </Link>
           <Card {...notifications} />
         </div>
         <div className="dashboard__graphs">

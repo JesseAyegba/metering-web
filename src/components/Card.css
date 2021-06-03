@@ -1,35 +1,37 @@
 .card {
-    width: 250px;
-    height: 200px;
-    padding: 10px 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    background-color: white;
-    transition: .2s ease-in;
-    box-shadow: 0 0 10px lightgray;
+  width: 250px;
+  height: 200px;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background-color: white;
+  transition: 0.2s ease-in;
+  box-shadow: 0 0 10px lightgray;
 }
 .card:hover {
-    transform: scale(1.01)
+  transform: scale(1.01);
 }
 .card__icon {
-    font-size: 45px;
-    color: pink;
-    width: 90px;
-    height: 90px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--dash_background);
-    border-radius: 50%;
+  font-size: 45px;
+  color: pink;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--dash_background);
+  border-radius: 50%;
 }
 .card__header {
-    font-size: 12px;
-    margin: 15px 0 5px 0;
-    text-transform: uppercase;
+  font-size: 12px;
+  margin: 15px 0 5px 0;
+  text-transform: uppercase;
+  color: var(--dark_blue);
 }
 .card__value {
-    font-size: 20px;
+  font-size: 20px;
+  color: var(--dark_blue);
 }

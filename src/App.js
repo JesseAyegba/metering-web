@@ -9,21 +9,6 @@ import Users from "./pages/Users";
 import { useSelector } from "react-redux";
 
 export default function App() {
-<<<<<<< HEAD
-    let auth = useSelector((globalState) => globalState.authReducer)
-    return(
-        <BrowserRouter>
-        <Switch>
-            <Route exact path="/"  component={ auth ? Login : Dashboard} />
-            <Route exact path="/dashboard/" component={ auth ? Dashboard : Login } />
-            <Route exact path="/users/" component={ auth ? Users : Login } />
-            <Route exact path="/users/:uid" component={ auth ? UserDetail : Login } />
-            <Route exact path="/uploads/" component={ auth ? Uploads : Login } />
-        </Switch>
-        </BrowserRouter>
-    )
-} 
-=======
   let auth = useSelector((globalState) => globalState.authReducer);
   return (
     <BrowserRouter>
@@ -31,10 +16,29 @@ export default function App() {
         <Route exact path="/" component={auth ? Dashboard : Login} />
         <Route exact path="/dashboard/" component={auth ? Dashboard : Login} />
         <Route exact path="/users/" component={auth ? Users : Login} />
-        <Route exact path="/users/:uid" component={auth ? UserDetail : Login} />
+        <Route
+          exact
+          path="/users/:userId/"
+          component={auth ? UserDetail : Login}
+        />
         <Route exact path="/uploads/" component={auth ? Uploads : Login} />
+
+        <Route exact path="/">
+          {auth ? <Dashboard /> : <Login />}
+        </Route>
+        <Route exact path="/dashboard/">
+          {auth ? <Dashboard /> : <Login />}
+        </Route>
+        <Route exact path="/users/">
+          {auth ? <Users /> : <Login />}
+        </Route>
+        <Route exact path="/users/:userId/">
+          {auth ? <UserDetail /> : <Login />}
+        </Route>
+        <Route exact path="/uploads/">
+          {auth ? <Uploads /> : <Login />}
+        </Route>
       </Switch>
     </BrowserRouter>
   );
 }
->>>>>>> master

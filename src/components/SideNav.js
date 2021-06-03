@@ -1,10 +1,10 @@
 import React from "react";
 import "./SideNav.css";
 import { FiPower } from "react-icons/fi";
-import { MdDashboard, MdAudiotrack } from "react-icons/md";
+import { MdDashboard } from "react-icons/md";
 import { HiUsers } from "react-icons/hi";
 import { NavLink as Link } from "react-router-dom";
-import { GiSoundOn } from "react-icons/gi";
+import GraphicEqRoundedIcon from "@material-ui/icons/GraphicEqRounded";
 import { auth } from "../firebase";
 import { useDispatch } from "react-redux";
 import { logout } from "../store/actions/authAction";
@@ -37,7 +37,8 @@ export default function SideNav() {
         </Link>
         <Link exact to="/uploads/">
           <li className="sideNav__link">
-            <GiSoundOn className="sideNav__icon" />
+            {/* <GiSoundOn className="sideNav__icon" /> */}
+            <GraphicEqRoundedIcon className="sideNav__icon" />
             Audio Uploads
           </li>
         </Link>
