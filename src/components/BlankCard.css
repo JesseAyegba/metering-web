@@ -1,0 +1,32 @@
+.blankCard {
+  width: 310px;
+  height: 200px;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.6);
+  transition: 0.2s ease-in;
+}
+.blankCard__icon {
+  width: 90px;
+  height: 90px;
+  background-color: var(--dash_background);
+  border-radius: 50%;
+}
+.blankCard__header {
+  height: 13px;
+  width: 120px;
+  margin: 15px 0 5px 0;
+  background-color: var(--dash_background);
+  border-radius: 8px;
+}
+.blankCard__value {
+  height: 13px;
+  width: 120px;
+  margin-top: 5px;
+  background-color: var(--dash_background);
+  border-radius: 8px;
+}

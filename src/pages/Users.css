@@ -16,6 +16,9 @@
   font-size: 25px;
   color: var(--dark_blue);
 }
+.users__spinner {
+  color: var(--light_blue);
+}
 .users__details {
   background-color: white;
   width: 70vw;
@@ -32,7 +35,7 @@
   /* justify-content: center; */
   padding: 8px 20px;
   font-size: 15px;
-  border: 1px lightgray solid;
+  border-top: 1px lightgray solid;
 }
 .users__icon {
   font-size: 30px;
