@@ -21,7 +21,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--dash_background);
+  background-color: rgb(252, 238, 255);
   border-radius: 50%;
 }
 .card__header {

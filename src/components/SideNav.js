@@ -8,20 +8,28 @@ import GraphicEqRoundedIcon from "@material-ui/icons/GraphicEqRounded";
 import { auth } from "../firebase";
 import { useDispatch } from "react-redux";
 import { logout } from "../store/actions/authAction";
+import { hideLoader, showLoader } from "../store/actions/loaderAction";
+import logo from "../svgs/logo.svg";
 
 export default function SideNav() {
   const dispatch = useDispatch();
 
   const handleClick = async () => {
     try {
+      dispatch(showLoader());
       await auth.signOut();
+      dispatch(hideLoader());
       dispatch(logout());
     } catch (error) {
+      dispatch(hideLoader());
       alert(error.message);
     }
   };
   return (
     <div className="sideNav">
+      <div className="sideNav__logo">
+        <img src={logo} alt="" />
+      </div>
       <div className="sideNav__links">
         <Link exact to="/dashboard/">
           <li className="sideNav__link">

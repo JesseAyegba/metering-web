@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import Uploads from "./pages/Uploads";
 import Users from "./pages/Users";
 import { useSelector } from "react-redux";
+import PageNotFound from "./pages/PageNotFound";
 
 export default function App() {
   let auth = useSelector((globalState) => globalState.authReducer);
@@ -22,22 +23,7 @@ export default function App() {
           component={auth ? UserDetail : Login}
         />
         <Route exact path="/uploads/" component={auth ? Uploads : Login} />
-
-        <Route exact path="/">
-          {auth ? <Dashboard /> : <Login />}
-        </Route>
-        <Route exact path="/dashboard/">
-          {auth ? <Dashboard /> : <Login />}
-        </Route>
-        <Route exact path="/users/">
-          {auth ? <Users /> : <Login />}
-        </Route>
-        <Route exact path="/users/:userId/">
-          {auth ? <UserDetail /> : <Login />}
-        </Route>
-        <Route exact path="/uploads/">
-          {auth ? <Uploads /> : <Login />}
-        </Route>
+        <Route exact path="*" component={PageNotFound} />
       </Switch>
     </BrowserRouter>
   );

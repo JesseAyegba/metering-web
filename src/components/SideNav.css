@@ -6,6 +6,9 @@
   height: 100vh;
   color: white;
 }
+.sideNav__logo img {
+  width: 200px;
+}
 .sideNav__links {
   margin-top: 40px;
 }
@@ -29,7 +32,7 @@
   transition: 0.2s ease-in;
 }
 .sideNav__link--bottom {
-  margin-top: 300px;
+  margin-top: 200px;
   cursor: pointer;
 }
 .sideNav__link--bottom:hover {

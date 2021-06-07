@@ -1,0 +1,17 @@
+.pageNotFound {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+}
+.pageNotFound img {
+  height: 100%;
+  width: 100%;
+}
+.pageNotFound h1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin-top: 200px;
+  text-align: center;
+}
