@@ -33,6 +33,18 @@ export default function Users() {
     getUsers();
   }, []);
 
+  // Listens for realtime updates
+  useEffect(() => {
+    db.collection("users").onSnapshot((snapShot) =>
+      setAllUsers(
+        snapShot.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data(),
+        }))
+      )
+    );
+  });
+
   return (
     <div className="users">
       <div className="users__sideNav">

@@ -5,7 +5,8 @@ import Card from "../components/Card";
 import DoughnutChart from "../components/Doughnut";
 import Header from "../components/Header";
 import SideNav from "../components/SideNav";
-import { audioUploads, notifications } from "../data/cardsData";
+import { notifications } from "../data/cardsData";
+import { MdAudiotrack } from "react-icons/md";
 import { db } from "../firebase";
 import "./Dashboard.css";
 import { Link } from "react-router-dom";
@@ -16,6 +17,7 @@ import { LinearProgress } from "@material-ui/core";
 
 export default function Dashboard() {
   const [allUsers, setAllUsers] = useState([]);
+  const [allRecordings, setAllRecordings] = useState([]);
   let loader = useSelector((globalState) => globalState.loaderReducer);
   let dispatch = useDispatch();
 
@@ -35,7 +37,43 @@ export default function Dashboard() {
         dispatch(hideLoader());
       }
     };
+    const getRecordings = async () => {
+      try {
+        dispatch(showLoader());
+        let snapShot = await db.collection("audioRecordings").get();
+        let recordings = snapShot.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data(),
+        }));
+        setAllRecordings(recordings);
+        dispatch(hideLoader());
+      } catch (error) {
+        alert(error);
+        dispatch(hideLoader());
+      }
+    };
     getUsers();
+    getRecordings();
+  }, []);
+
+  // Listens for Realtime updates
+  useEffect(() => {
+    db.collection("users").onSnapshot((snapShot) =>
+      setAllUsers(
+        snapShot.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data(),
+        }))
+      )
+    );
+    db.collection("audioRecordings").onSnapshot((snapShot) =>
+      setAllRecordings(
+        snapShot.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data(),
+        }))
+      )
+    );
   }, []);
 
   return (
@@ -61,7 +99,12 @@ export default function Dashboard() {
                 />
               </Link>
               <Link to="/uploads/" exact>
-                <Card {...audioUploads} />
+                <Card
+                  headerText="Audio Uploads"
+                  value={allRecordings.length}
+                  icon={<MdAudiotrack />}
+                  iconColor="green"
+                />
               </Link>
               <Card {...notifications} />
             </div>
