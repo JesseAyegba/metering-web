@@ -7,6 +7,7 @@ import { BiArrowBack } from "react-icons/bi";
 import { useSelector, useDispatch } from "react-redux";
 import { hideLoader, showLoader } from "../store/actions/loaderAction";
 import { LinearProgress } from "@material-ui/core";
+import FlipMove from "react-flip-move";
 
 export default function UserDetail() {
   const [userProfile, setUserProfile] = useState({
@@ -76,7 +77,7 @@ export default function UserDetail() {
             </div>
             <div className="userDetail__email">{userProfile.data.email}</div>
           </div>
-          <div className="userDetail__recordings">
+          <FlipMove className="userDetail__recordings">
             {allUserRecordings.map((recording) => (
               <div className="userDetail__recording" key={recording.id}>
                 <p>{recording.data.fileName}</p>
@@ -85,7 +86,7 @@ export default function UserDetail() {
                 </a>
               </div>
             ))}
-          </div>
+          </FlipMove>
         </div>
       )}
     </div>

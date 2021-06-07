@@ -1,8 +1,6 @@
 .dashBlank__content {
   flex: 0.8;
   background-color: var(--dash_background);
-  height: 100vh;
-  overflow: scroll;
 }
 .dashBlank__header {
   padding: 10px 20px;

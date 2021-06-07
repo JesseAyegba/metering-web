@@ -28,7 +28,9 @@ export default function SideNav() {
   return (
     <div className="sideNav">
       <div className="sideNav__logo">
-        <img src={logo} alt="" />
+        <Link exact to="/dashboard/">
+          <img src={logo} alt="" />
+        </Link>
       </div>
       <div className="sideNav__links">
         <Link exact to="/dashboard/">
