@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { hideLoader, showLoader } from "../store/actions/loaderAction";
 import DashBlank from "../components/DashBlank";
+import SideNavMini from "../components/SideNavMini";
 import { LinearProgress } from "@material-ui/core";
 
 export default function Dashboard() {
@@ -78,9 +79,8 @@ export default function Dashboard() {
 
   return (
     <div className="dashboard">
-      <div className="dashboard__sideNav">
-        <SideNav />
-      </div>
+      <SideNav />
+      <SideNavMini />
       <div className="dashboard__content">
         <Header />
         {loader ? <LinearProgress /> : <div></div>}

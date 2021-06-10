@@ -13,7 +13,7 @@ export default function DashBlank() {
         </div>
         <div className="dashBlank__graphs">
           <div className="dashBlank__bar">
-            <div style={{ width: "500px" }} className="dashBlank__header"></div>
+            <div style={{ width: "90%" }} className="dashBlank__header"></div>
           </div>
           <div className="dashBlank__doughnut">
             <div style={{ width: "300px" }} className="dashBlank__header"></div>

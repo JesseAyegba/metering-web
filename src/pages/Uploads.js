@@ -7,6 +7,7 @@ import "./Uploads.css";
 import { LinearProgress } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import { db } from "../firebase";
+import SideNavMini from "../components/SideNavMini";
 
 export default function Uploads() {
   const [allRecordings, setAllRecordings] = useState([]);
@@ -45,9 +46,8 @@ export default function Uploads() {
   });
   return (
     <div className="uploads">
-      <div className="uploads__sideNav">
-        <SideNav />
-      </div>
+      <SideNav />
+      <SideNavMini />
       <div className="uploads__content">
         <Header />
         {loader ? <LinearProgress /> : <div></div>}

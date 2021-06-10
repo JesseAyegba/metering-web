@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { hideLoader, showLoader } from "../store/actions/loaderAction";
 import { LinearProgress } from "@material-ui/core";
+import SideNavMini from "../components/SideNavMini";
 
 export default function Users() {
   const [allUsers, setAllUsers] = useState([]);
@@ -47,9 +48,8 @@ export default function Users() {
 
   return (
     <div className="users">
-      <div className="users__sideNav">
-        <SideNav />
-      </div>
+      <SideNav />
+      <SideNavMini />
       <div className="users__content">
         <Header />
         {loader ? <LinearProgress /> : <div></div>}

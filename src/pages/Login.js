@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { auth } from "../firebase";
-import { loginSuccess } from "../store/actions/authAction";
+import { auth, db } from "../firebase";
+import { loginFail, loginSuccess } from "../store/actions/authAction";
 import "./Login.css";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { hideLoader, showLoader } from "../store/actions/loaderAction";
@@ -35,7 +35,14 @@ export default function Login() {
         email,
         password
       );
-      dispatch(loginSuccess(userCredential));
+      const currentUserEmail = auth.currentUser.email;
+      const doc = await db.collection("users").doc(currentUserEmail).get();
+      if (doc.data().isAdmin) {
+        dispatch(loginSuccess(userCredential));
+      } else {
+        auth.signOut();
+        dispatch(loginFail());
+      }
       dispatch(hideLoader());
     } catch (error) {
       alert(error.message);

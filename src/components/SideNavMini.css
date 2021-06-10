@@ -1,52 +1,50 @@
-.sideNav {
+.sideNavMini {
+  display: none;
   background-color: var(--dark_blue);
-  width: 250px;
-  padding: 40px 40px;
+  width: 100px;
+  padding: 40px 0;
   height: 100vh;
   color: white;
 }
-.sideNav__logo img {
-  width: 150px;
+.sideNavMini__logo img {
+  width: 98px;
   display: block;
   margin: 0 auto;
 }
-.sideNav__links {
+.sideNavMini__links {
   margin-top: 40px;
 }
-.sideNav__links a {
+.sideNavMini__links a {
   display: block;
-  border-radius: 5px;
   color: white;
   text-decoration: none;
 }
-.sideNav__links .active {
+.sideNavMini__links .active {
   background-color: var(--light_blue);
 }
-.sideNav__link {
+.sideNavMini__link {
   list-style: none;
   font-size: 15px;
   padding: 6px 10px;
   margin: 5px 0;
-  border-radius: 8px;
-  display: flex;
+  text-align: center;
   align-items: center;
   transition: 0.2s ease-in;
 }
-.sideNav__link--bottom {
+.sideNavMini__link--bottom {
   margin-top: 200px;
   cursor: pointer;
 }
-.sideNav__link--bottom:hover {
+.sideNavMini__link--bottom:hover {
   background-color: red;
 }
 
-.sideNav__icon {
+.sideNavMini__icon {
   margin-right: 10px;
   font-size: 25px;
 }
-
 @media (max-width: 1000px) {
-  .sideNav {
-    display: none;
+  .sideNavMini {
+    display: block;
   }
 }

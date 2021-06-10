@@ -23,24 +23,35 @@
   align-items: center;
 }
 .dashBlank__doughnut {
+  margin: 10px 10px;
   background-color: rgba(255, 255, 255, 0.6);
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+  border-radius: 4px;
   height: 320px;
   width: 350px;
   padding: 10px;
 }
 .dashBlank__bar {
+  margin: 10px 10px;
   background-color: rgba(255, 255, 255, 0.6);
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+  border-radius: 4px;
   height: 320px;
-  width: 550px;
+  width: 650px;
   padding: 10px;
 }
 .dashBlank__header {
   height: 13px;
-  width: 120px;
   background-color: var(--dash_background);
   border-radius: 8px;
+}
+@media (max-width: 992px) {
+  .dashBlank__bar,
+  .dashBlank__doughnut {
+    width: 80%;
+  }
+}
+@media (max-width: 768px) {
+  .dashBlank__bar,
+  .dashBlank__doughnut {
+    width: 95%;
+  }
 }

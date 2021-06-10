@@ -1,11 +1,8 @@
 .dashboard {
   display: flex;
 }
-.dashboard__sideNav {
-  flex: 0.2;
-}
 .dashboard__content {
-  flex: 0.8;
+  flex: 1;
   background-color: var(--dash_background);
   height: 100vh;
   overflow: scroll;
