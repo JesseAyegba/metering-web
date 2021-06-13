@@ -59,6 +59,7 @@ export default function Login() {
       <form onSubmit={(e) => handleSubmit(e)} className="login__form">
         <div className="login__formField">
           <input
+            required
             name="email"
             onChange={(e) => handleChange(e)}
             placeholder="Email"
@@ -68,6 +69,7 @@ export default function Login() {
         </div>
         <div className="login__formField">
           <input
+            required
             name="password"
             onChange={(e) => handleChange(e)}
             placeholder="Password"
