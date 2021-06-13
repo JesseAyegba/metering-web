@@ -1,13 +1,15 @@
 .login {
-  padding: 50px 50px 0 50px;
   height: 100vh;
   width: 100vw;
   background-color: var(--dark_blue);
 }
+.login__logo {
+  padding: 60px 0;
+}
 .login__logo img {
-  margin: 20px auto;
+  margin: 0 auto;
   display: block;
-  width: 300px;
+  width: 250px;
 }
 .login__header {
   text-align: center;
@@ -26,7 +28,7 @@
 .login__error {
   color: white;
   width: 300px;
-  height: 50px;
+  height: 60px;
   padding: 10px;
   border-radius: 10px;
   background-color: rgb(209, 69, 93);
@@ -37,9 +39,9 @@
   color: white;
   font-weight: bold;
   font-size: 16px;
-  margin: 5px 0;
-  width: 300px;
-  height: 50px;
+  margin: 10px 0;
+  width: 350px;
+  height: 60px;
   padding: 10px;
   border-radius: 10px;
   outline: none;
@@ -50,9 +52,9 @@
   color: white;
   font-weight: bold;
   font-size: 16px;
-  margin: 20px 0;
-  width: 300px;
-  height: 50px;
+  margin: 25px 0;
+  width: 350px;
+  height: 60px;
   padding: 10px;
   border-radius: 10px;
   outline: none;
