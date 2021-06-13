@@ -32,25 +32,28 @@
   background-color: white;
   display: flex;
   align-items: center;
-  /* justify-content: center; */
   padding: 8px 20px;
   font-size: 15px;
   border-top: 1px lightgray solid;
 }
 .users__icon {
   font-size: 30px;
-  margin-right: 50px;
-  color: #03396c;
+  margin-right: 10px;
+  color: var(--energetic_light_blue);
 }
 .users__detail p {
-  margin-right: 50px;
-  min-width: 400px;
+  flex: 1;
 }
 .users__btn {
   font-size: 15px;
   color: white;
   border: none;
-  background-color: var(--light_blue);
-  padding: 5px 20px;
-  border-radius: 8px;
+  background-color: var(--energetic_light_blue);
+  padding: 12px 12px;
+  border-radius: 4px;
+}
+@media(max-width: 768px) {
+  .users__btn {
+    font-size: 12px;
+  }
 }

@@ -11,7 +11,7 @@
   padding: 10px 20px;
   margin: 15px 0;
   font-size: 25px;
-  color: green;
+  color: var(--dark_purple);
 }
 .uploads__details {
   background-color: white;
@@ -32,18 +32,22 @@
 }
 .uploads__icon {
   font-size: 30px;
-  margin-right: 50px;
-  color: green;
+  margin-right: 10px;
+  color: var(--dark_purple);
 }
 .uploads__detail p {
-  margin-right: 50px;
-  min-width: 400px;
+  flex: 1;
 }
 .uploads__btn {
   font-size: 15px;
   color: white;
   border: none;
-  background-color: green;
-  padding: 5px 20px;
-  border-radius: 8px;
+  background-color: var(--dark_purple);
+  padding: 12px 12px;
+  border-radius: 4px;
+}
+@media(max-width: 768px) {
+  .uploads__btn {
+    font-size: 12px;
+  }
 }

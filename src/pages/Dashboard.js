@@ -95,7 +95,7 @@ export default function Dashboard() {
                   headerText="Users"
                   value={allUsers.length}
                   icon={<HiUsers />}
-                  iconColor="#04040D"
+                  iconColor="var(--energetic_light_blue)"
                 />
               </Link>
               <Link to="/uploads/" exact>
@@ -103,7 +103,7 @@ export default function Dashboard() {
                   headerText="Audio Uploads"
                   value={allRecordings.length}
                   icon={<MdAudiotrack />}
-                  iconColor="green"
+                  iconColor="var(--dark_purple)"
                 />
               </Link>
               <Card {...notifications} />
