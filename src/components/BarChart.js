@@ -11,6 +11,19 @@ export default function BarChart({ bg }) {
           className="bar"
           options={{
             maintainAspectRatio: false,
+            scales: {
+              x: {
+                  grid:{
+                   display:false
+                       }
+                 },
+              y: {
+                  display: false,
+                  grid:{
+                  display:false
+                    }
+                 }
+                     }
           }}
           data={{
             labels: ["WazobiaFM", "CityFM", "HebronFM"],
