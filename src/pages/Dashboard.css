@@ -1,4 +1,5 @@
 .dashboard {
+  min-height: 100vh;
   display: flex;
 }
 .dashboard__content {

@@ -1,4 +1,5 @@
 .users {
+  min-height: 100vh;
   display: flex;
 }
 .users__sideNav {
@@ -52,7 +53,7 @@
   padding: 12px 12px;
   border-radius: 4px;
 }
-@media(max-width: 768px) {
+@media (max-width: 768px) {
   .users__btn {
     font-size: 12px;
   }
