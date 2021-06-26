@@ -45,8 +45,12 @@ export default function Landing() {
             </div>
             <h1 className="landing__cardHeader">Send your Audio</h1>
             <p className="landing__cardBody">
+<<<<<<< HEAD
               Use our mobile app to send your recordings to our secure cloud
               database
+=======
+              Send your recordings to our secure cloud database
+>>>>>>> 51471f5ec5b221926a3dfa0e864383787ef83fe3
             </p>
           </div>
           <div className="landing__card landing__card--big">
@@ -60,8 +64,12 @@ export default function Landing() {
             </div>
             <h1 className="landing__cardHeader">We analyze it</h1>
             <p className="landing__cardBody">
+<<<<<<< HEAD
               With our machine learning enabled platform, we analyze your
               recordings
+=======
+              Send your recordings to our secure cloud database
+>>>>>>> 51471f5ec5b221926a3dfa0e864383787ef83fe3
             </p>
           </div>
           <div className="landing__card">
@@ -70,9 +78,15 @@ export default function Landing() {
                 style={{ fontSize: "100px", color: "darkorange" }}
               />
             </div>
+<<<<<<< HEAD
             <h1 className="landing__cardHeader">You get paid</h1>
             <p className="landing__cardBody">
               We pay you for sending recordings to us
+=======
+            <h1 className="landing__cardHeader">We pay you</h1>
+            <p className="landing__cardBody">
+              Send your recordings to our secure cloud database
+>>>>>>> 51471f5ec5b221926a3dfa0e864383787ef83fe3
             </p>
           </div>
         </div>

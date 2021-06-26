@@ -15,8 +15,13 @@ export default function App() {
   return (
     <BrowserRouter>
       <Switch>
+<<<<<<< HEAD
         <Route exact path="/" component={auth ? Dashboard : Landing} />
         <Route exact path="/login/" component={auth ? Dashboard : Login} />
+=======
+        <Route exact path="/login" component={auth ? Dashboard : Login} />
+        <Route exact path="/" component={auth ? Dashboard : Landing} />
+>>>>>>> 51471f5ec5b221926a3dfa0e864383787ef83fe3
         <Route exact path="/dashboard/" component={auth ? Dashboard : Login} />
         <Route exact path="/users/" component={auth ? Users : Login} />
         <Route
