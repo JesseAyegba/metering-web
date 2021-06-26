@@ -7,6 +7,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import { hideLoader, showLoader } from "../store/actions/loaderAction";
 import { LinearProgress } from "@material-ui/core";
 import logo from "../svgs/logo.svg";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const [userInput, setUserInput] = useState({
@@ -53,7 +54,9 @@ export default function Login() {
     <div className="login">
       {loader ? <LinearProgress /> : <div></div>}
       <div className="login__logo">
-        <img src={logo} alt="Logo" />
+        <Link exact to="/">
+          <img src={logo} alt="Logo" />
+        </Link>
       </div>
       <h1 className="login__header">Admin Login</h1>
       <form onSubmit={(e) => handleSubmit(e)} className="login__form">

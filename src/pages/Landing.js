@@ -38,7 +38,7 @@ export default function Landing() {
         <h1 className="landing__infoHeader">How we do it</h1>
         <div className="landing__cards">
           <div className="landing__card">
-            <div className="landing__cardIcon landing__cardIcon--1">
+            <div className="landing__cardIcon">
               <GiSoundWaves
                 style={{ fontSize: "100px", color: "var(--dark_purple)" }}
               />
@@ -50,7 +50,7 @@ export default function Landing() {
             </p>
           </div>
           <div className="landing__card landing__card--big">
-            <div className="landing__cardIcon landing__cardIcon--2">
+            <div className="landing__cardIcon">
               <BiAnalyse
                 style={{
                   fontSize: "100px",
@@ -65,7 +65,7 @@ export default function Landing() {
             </p>
           </div>
           <div className="landing__card">
-            <div className="landing__cardIcon landing__cardIcon--3">
+            <div className="landing__cardIcon">
               <FaMoneyBillWave
                 style={{ fontSize: "100px", color: "darkorange" }}
               />

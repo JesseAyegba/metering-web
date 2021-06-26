@@ -48,7 +48,7 @@
   border: 2px gray solid;
 }
 .login__btn {
-  background-color: var(--light_blue);
+  background-color: var(--energetic_light_blue);
   color: white;
   font-weight: bold;
   font-size: 16px;

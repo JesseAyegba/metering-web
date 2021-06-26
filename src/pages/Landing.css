@@ -17,7 +17,6 @@
   flex-flow: wrap;
   justify-content: space-evenly;
   align-items: center;
-  /* background-color: var(--dash_background); */
   min-height: 500px;
   padding: 30px 0px;
 }
@@ -65,8 +64,8 @@
   background-size: cover;
 }
 .landing__info {
+  padding: 60px 10px;
   background: url("../svgs/waveyFingerPrint.svg");
-  padding: 40px 10px;
 }
 .landing__infoHeader {
   text-align: center;
@@ -100,18 +99,6 @@
   justify-content: center;
   align-items: center;
   margin: 60px auto;
-}
-/* .landing__cardIcon--1 {
-  background: url("../svgs/largeTriangle.svg");
-  background-size: cover;
-} */
-.landing__cardIcon--2 {
-  background: url("../svgs/bermudaSquare.svg");
-  background-size: cover;
-}
-.landing__cardIcon--3 {
-  background: url("../svgs/purpleConstellation.svg");
-  background-size: cover;
 }
 .landing__cardHeader {
   text-align: center;
