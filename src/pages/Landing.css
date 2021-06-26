@@ -17,19 +17,11 @@
   flex-flow: wrap;
   justify-content: space-evenly;
   align-items: center;
-<<<<<<< HEAD
-=======
-  /* background-color: var(--dash_background); */
->>>>>>> 51471f5ec5b221926a3dfa0e864383787ef83fe3
   min-height: 500px;
   padding: 30px 0px;
 }
 .landing__hero img {
-<<<<<<< HEAD
   width: 800px;
-=======
-  width: 600px;
->>>>>>> 51471f5ec5b221926a3dfa0e864383787ef83fe3
 }
 .landing__heroText {
   width: 400px;
@@ -40,13 +32,12 @@
 .landing__link {
   background-color: var(--energetic_light_blue);
   color: white;
-  font-weight: bold;
   font-size: 16px;
   margin: 25px 0;
   width: 100px;
   height: 40px;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 5px;
   outline: none;
   border: none;
   cursor: pointer;
@@ -69,14 +60,11 @@
 }
 .landing__btn:hover {
   background-color: #4a48c5;
-<<<<<<< HEAD
   background-size: cover;
 }
 .landing__info {
   padding: 60px 10px;
   background: url("../svgs/waveyFingerPrint.svg");
-=======
->>>>>>> 51471f5ec5b221926a3dfa0e864383787ef83fe3
 }
 .landing__infoHeader {
   text-align: center;
@@ -84,18 +72,10 @@
   font-size: 40px;
 }
 .landing__cards {
-<<<<<<< HEAD
   display: flex;
   flex-flow: wrap;
   justify-content: space-evenly;
   align-items: center;
-=======
-  width: 1000px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  margin: 0 auto;
->>>>>>> 51471f5ec5b221926a3dfa0e864383787ef83fe3
 }
 .landing__card {
   background-color: rgb(243, 245, 252);
@@ -104,10 +84,8 @@
   border: 1px rgb(199, 196, 196) solid;
   border-radius: 9px;
   padding: 0 10px;
-<<<<<<< HEAD
   margin: 10px;
-=======
->>>>>>> 51471f5ec5b221926a3dfa0e864383787ef83fe3
+  box-shadow: 0 0 5px 0 rgb(230, 228, 228);
 }
 .landing__card--big {
   height: 550px;
@@ -130,7 +108,6 @@
   text-align: center;
   margin: 10px 0;
   font-size: 20px;
-<<<<<<< HEAD
   color: rgb(48, 46, 46);
 }
 @media (max-width: 998px) {
@@ -148,6 +125,4 @@
   .landing__hero img {
     width: 100%;
   }
-=======
->>>>>>> 51471f5ec5b221926a3dfa0e864383787ef83fe3
 }

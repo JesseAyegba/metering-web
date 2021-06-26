@@ -1,0 +1,11 @@
+.footer {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--energetic_light_blue);
+  color: white;
+}
+.footer__text {
+  font-size: 15px;
+}
