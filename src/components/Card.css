@@ -10,7 +10,6 @@
   border-radius: 4px;
   background-color: white;
   transition: 0.2s ease-in;
-  box-shadow: 0 0 50px rgb(115, 127, 153);
 }
 .card:hover {
   transform: scale(1.01);
