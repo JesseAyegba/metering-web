@@ -95,7 +95,7 @@ export default function Dashboard() {
                   headerText="Users"
                   value={allUsers.length}
                   icon={<HiUsers />}
-                  iconColor="var(--energetic_light_blue)"
+                  iconColor="var(--dark_blue)"
                 />
               </Link>
               <Link to="/uploads/" exact>
