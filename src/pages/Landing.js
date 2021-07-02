@@ -1,6 +1,6 @@
 import React from "react";
 import "./Landing.css";
-import logo from "../svgs/logoSelf.svg";
+import logo from "../svgs/logoHorizontal.svg";
 import phone from "../svgs/phone.svg";
 import { Link } from "react-router-dom";
 import { GiSoundWaves } from "react-icons/gi";

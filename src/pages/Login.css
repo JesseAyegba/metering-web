@@ -9,7 +9,7 @@
 .login__logo img {
   margin: 0 auto;
   display: block;
-  width: 250px;
+  width: 200px;
 }
 .login__header {
   text-align: center;
@@ -17,9 +17,7 @@
   color: white;
 }
 .login__form {
-  min-width: 300px;
-  width: 40%;
-  max-width: 400px;
+  width: 400px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -64,4 +62,14 @@
 }
 .login__btn:hover {
   background-color: #4a48c5;
+}
+@media (max-width: 568px) {
+  .login__form,
+  .login__input,
+  .login__btn {
+    width: 100%;
+  }
+  .login__logo img {
+    width: 50%;
+  }
 }
