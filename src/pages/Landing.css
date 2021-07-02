@@ -1,12 +1,16 @@
 .landing__header {
   background-color: var(--dark_blue);
-  padding: 2px 40px;
+  padding: 0px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 60px;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 0 10px 0 gray;
 }
 .landing__logo img {
-  width: 80px;
+  height: 45px;
 }
 .landing__link {
   color: white;
