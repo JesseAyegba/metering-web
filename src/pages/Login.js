@@ -6,7 +6,7 @@ import "./Login.css";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { hideLoader, showLoader } from "../store/actions/loaderAction";
 import { LinearProgress } from "@material-ui/core";
-import logo from "../svgs/logo.svg";
+import logo from "../svgs/logoHorizontal.svg";
 import { Link } from "react-router-dom";
 
 export default function Login() {

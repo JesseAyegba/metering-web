@@ -9,7 +9,7 @@ import { auth } from "../firebase";
 import { useDispatch } from "react-redux";
 import { logout } from "../store/actions/authAction";
 import { hideLoader, showLoader } from "../store/actions/loaderAction";
-import logo from "../svgs/logo.svg";
+import logo from "../svgs/logoHorizontal.svg";
 
 export default function SideNav() {
   const dispatch = useDispatch();
