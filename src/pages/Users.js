@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import SideNav from "../components/SideNav";
-import { CgProfile } from "react-icons/cg";
+import { BsPersonFill } from "react-icons/bs";
 import "./Users.css";
 import { db } from "../firebase";
 import { Link } from "react-router-dom";
@@ -60,7 +60,7 @@ export default function Users() {
           <div className="users__details">
             {allUsers.map((user) => (
               <div key={user.id} className="users__detail">
-                <CgProfile className="users__icon" />
+                <BsPersonFill className="users__icon" />
                 <p>{user.data.email}</p>
                 <Link exact to={`/users/${user.id}/`} className="users__btn">
                   View profile

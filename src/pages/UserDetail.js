@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { db } from "../firebase";
 import "./UserDetail.css";
-import { AiFillPlayCircle } from "react-icons/ai";
+import { BsPersonFill } from "react-icons/bs";
 import { BiArrowBack } from "react-icons/bi";
 import { useSelector, useDispatch } from "react-redux";
 import { hideLoader, showLoader } from "../store/actions/loaderAction";
@@ -72,18 +72,22 @@ export default function UserDetail() {
       ) : (
         <div className="userDetail__hero">
           <div className="userDetail__profile">
+            <BsPersonFill className="userDetail__icon" />
             <div className="userDetail__name">
               {userProfile.data.displayName}
             </div>
             <div className="userDetail__email">{userProfile.data.email}</div>
+            <div className="userDetail__uploads">
+              Total Uploads: {allUserRecordings.length}
+            </div>
           </div>
           <FlipMove className="userDetail__recordings">
             {allUserRecordings.map((recording) => (
-              <div className="userDetail__recording" key={recording.id}>
-                <p>{recording.data.fileName}</p>
-                <a href={recording.data.audioUrl} target="_blank">
-                  <AiFillPlayCircle className="userDetail__icon" />
-                </a>
+              <div>
+                <div className="userDetail__recording" key={recording.id}>
+                  <p>{recording.data.fileName}</p>
+                  <audio controls src={recording.data.audioUrl}></audio>
+                </div>
               </div>
             ))}
           </FlipMove>
