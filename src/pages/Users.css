@@ -51,7 +51,7 @@
   border: none;
   background-color: var(--energetic_light_blue);
   padding: 12px 12px;
-  border-radius: 4px;
+  border-radius: 8px;
 }
 @media (max-width: 768px) {
   .users__btn {
