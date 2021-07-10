@@ -37,7 +37,6 @@
   position: absolute;
   width: 100%;
   bottom: 30px;
-  border: 1px red solid;
 }
 .sideNavMini__link--bottom:hover {
   background-color: red;
