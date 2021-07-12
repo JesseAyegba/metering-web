@@ -12,7 +12,6 @@ import Modal from "../components/Modal";
 import { BiAnalyse } from "react-icons/bi";
 
 export default function UserDetail() {
-  const audioRef = useRef();
   const [modal, setModal] = useState(false);
   const [modalData, setModalData] = useState({
     fileName: "",
@@ -64,6 +63,15 @@ export default function UserDetail() {
       );
   }, []);
 
+  // Keeps page fixed when modal pops
+  useEffect(() => {
+    const html = document.querySelector("html");
+    if (modal) {
+      html.classList.add("stopScroll");
+    } else {
+      html.classList.remove("stopScroll");
+    }
+  }, [modal]);
   const handleClick = (fileName, fileUrl) => {
     setModalData({
       ...modalData,

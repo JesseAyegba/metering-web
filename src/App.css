@@ -34,3 +34,6 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+.stopScroll {
+  overflow-y: hidden;
+}
