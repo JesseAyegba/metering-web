@@ -30,10 +30,11 @@
   border-radius: 10px;
 }
 .modal__rightHeader {
-  border: 2px red solid;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 .modal__btn {
-  display: block;
   background-color: var(--dark_purple);
   color: white;
   font-size: 16px;
@@ -54,8 +55,11 @@
   background-color: var(--energetic_light_blue);
 }
 .modal__cancel {
-  float: right;
   font-size: 40px;
   margin: 10px;
   cursor: pointer;
+}
+.modal__rightFileName {
+  font-size: 25px;
+  text-align: center;
 }

@@ -102,7 +102,10 @@ export default function UserDetail() {
                 <p>{recording.data.fileName}</p>
                 <BiAnalyse
                   onClick={() => {
-                    handleClick(recording.data.fileName, recording.data.url);
+                    handleClick(
+                      recording.data.fileName,
+                      recording.data.audioUrl
+                    );
                   }}
                   className="userDetail__icon"
                 />
