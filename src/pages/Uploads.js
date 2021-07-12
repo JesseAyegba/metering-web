@@ -52,9 +52,7 @@ export default function Uploads() {
         <Header />
         {loader ? <LinearProgress /> : <div></div>}
         <h1 className="uploads__header">Audio Uploads</h1>
-        {loader ? (
-          <div></div>
-        ) : (
+        {loader ? null : (
           <div className="uploads__details">
             {allRecordings.map((recording) => (
               <div key={recording.id} className="uploads__detail">

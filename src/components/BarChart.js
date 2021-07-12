@@ -13,17 +13,17 @@ export default function BarChart({ bg }) {
             maintainAspectRatio: false,
             scales: {
               x: {
-                  grid:{
-                   display:false
-                       }
-                 },
-              y: {
+                grid: {
                   display: false,
-                  grid:{
-                  display:false
-                    }
-                 }
-                     }
+                },
+              },
+              y: {
+                display: false,
+                grid: {
+                  display: false,
+                },
+              },
+            },
           }}
           data={{
             labels: ["WazobiaFM", "CityFM", "HebronFM"],

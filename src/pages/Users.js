@@ -54,9 +54,7 @@ export default function Users() {
         <Header />
         {loader ? <LinearProgress /> : <div></div>}
         <h1 className="users__header">Users</h1>
-        {loader ? (
-          <div></div>
-        ) : (
+        {loader ? null : (
           <div className="users__details">
             {allUsers.map((user) => (
               <div key={user.id} className="users__detail">

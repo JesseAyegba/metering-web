@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
 import { db } from "../firebase";
 import "./UserDetail.css";
@@ -8,8 +8,16 @@ import { useSelector, useDispatch } from "react-redux";
 import { hideLoader, showLoader } from "../store/actions/loaderAction";
 import { LinearProgress } from "@material-ui/core";
 import FlipMove from "react-flip-move";
+import Modal from "../components/Modal";
+import { BiAnalyse } from "react-icons/bi";
 
 export default function UserDetail() {
+  const audioRef = useRef();
+  const [modal, setModal] = useState(false);
+  const [modalData, setModalData] = useState({
+    fileName: "",
+    fileUrl: "",
+  });
   const [userProfile, setUserProfile] = useState({
     id: "",
     data: {
@@ -56,6 +64,14 @@ export default function UserDetail() {
       );
   }, []);
 
+  const handleClick = (fileName, fileUrl) => {
+    setModalData({
+      ...modalData,
+      fileName: fileName,
+      fileUrl: fileUrl,
+    });
+    setModal(true);
+  };
   return (
     <div className="userDetail">
       <div className="userDetail__header">
@@ -66,10 +82,9 @@ export default function UserDetail() {
           <h1>Users</h1>
         </Link>
       </div>
-      {loader ? <LinearProgress /> : <div></div>}
-      {loader ? (
-        <div></div>
-      ) : (
+      {loader ? <LinearProgress /> : null}
+      {modal ? <Modal setModal={setModal} modalData={modalData} /> : null}
+      {loader ? null : (
         <div className="userDetail__hero">
           <div className="userDetail__profile">
             <BsPersonFill className="userDetail__icon" />
@@ -83,11 +98,14 @@ export default function UserDetail() {
           </div>
           <FlipMove className="userDetail__recordings">
             {allUserRecordings.map((recording) => (
-              <div>
-                <div className="userDetail__recording" key={recording.id}>
-                  <p>{recording.data.fileName}</p>
-                  <audio controls src={recording.data.audioUrl}></audio>
-                </div>
+              <div className="userDetail__recording" key={recording.id}>
+                <p>{recording.data.fileName}</p>
+                <BiAnalyse
+                  onClick={() => {
+                    handleClick(recording.data.fileName, recording.data.url);
+                  }}
+                  className="userDetail__icon"
+                />
               </div>
             ))}
           </FlipMove>

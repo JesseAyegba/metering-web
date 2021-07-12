@@ -68,11 +68,13 @@
   align-items: center;
   border: 1px var(--light_blue) solid;
   padding: 5px 30px;
+  height: 80px;
 }
 .userDetail__icon {
   font-size: 50px;
   color: white;
+  cursor: pointer;
 }
 .userDetail__icon:hover {
-  color: lightgray;
+  color: var(--dark_purple);
 }
