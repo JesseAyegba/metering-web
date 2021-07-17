@@ -10,6 +10,8 @@ import { LinearProgress } from "@material-ui/core";
 import FlipMove from "react-flip-move";
 import Modal from "../components/Modal";
 import { BiAnalyse } from "react-icons/bi";
+import { FcCheckmark } from "react-icons/fc";
+import { AiOutlineClockCircle } from "react-icons/ai";
 
 export default function UserDetail() {
   const [modal, setModal] = useState(false);
@@ -107,6 +109,11 @@ export default function UserDetail() {
           <FlipMove className="userDetail__recordings">
             {allUserRecordings.map((recording) => (
               <div className="userDetail__recording" key={recording.id}>
+                {recording.data.isAnalyzed ? (
+                  <FcCheckmark className="userDetail__icon" />
+                ) : (
+                  <AiOutlineClockCircle className="userDetail__icon" />
+                )}
                 <p>{recording.data.fileName}</p>
                 <BiAnalyse
                   onClick={() => {
