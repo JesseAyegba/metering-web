@@ -55,9 +55,10 @@
   background-color: var(--energetic_light_blue);
 }
 .modal__cancel {
-  font-size: 40px;
-  margin: 10px;
+  font-size: 35px;
+  margin: 15px;
   cursor: pointer;
+  color: black;
 }
 .modal__rightFileName {
   font-size: 25px;
@@ -74,7 +75,7 @@
   color: white;
   font-size: 12px;
   margin: 25px 0;
-  height: 60px;
+  height: 40px;
   width: 100px;
   padding: 10px;
   border-radius: 10px;

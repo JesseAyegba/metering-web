@@ -109,12 +109,15 @@ export default function UserDetail() {
           <FlipMove className="userDetail__recordings">
             {allUserRecordings.map((recording) => (
               <div className="userDetail__recording" key={recording.id}>
-                {recording.data.isAnalyzed ? (
-                  <FcCheckmark className="userDetail__icon" />
-                ) : (
-                  <AiOutlineClockCircle className="userDetail__icon" />
-                )}
-                <p>{recording.data.fileName}</p>
+                <div className="userDetail__recordingText">
+                  {recording.data.isAnalyzed ? (
+                    <FcCheckmark className="userDetail__icon--small" />
+                  ) : (
+                    <AiOutlineClockCircle className="userDetail__icon--small" />
+                  )}
+
+                  <p>{recording.data.fileName}</p>
+                </div>
                 <BiAnalyse
                   onClick={() => {
                     handleClick(

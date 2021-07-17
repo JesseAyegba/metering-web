@@ -27,17 +27,17 @@
 }
 .userDetail__profile {
   text-align: center;
-  color: var(--dark_purple);
+  color: white;
   width: 400px;
   height: 400px;
-  background-color: white;
+  background-color: var(--dark_blue);
   border-radius: 4px;
   margin: 5px;
 }
 .userDetail__profileIcon {
   margin-top: 40px;
   font-size: 80px;
-  color: var(--dark_purple);
+  color: white;
 }
 .userDetail__name {
   font-size: 40px;
@@ -70,9 +70,29 @@
   padding: 5px 30px;
   height: 80px;
 }
+.userDetail__recordingText {
+  display: flex;
+  align-items: center;
+}
+.userDetail__recordingText p {
+  margin: 0 10px;
+}
 .userDetail__icon {
   font-size: 50px;
   color: white;
+  cursor: pointer;
+  border: 2px white solid;
+  border-radius: 8px;
+  width: 100px;
+  transition: 0.1s ease-in-out;
+}
+.userDetail__icon:hover {
+  background-color: white;
+  transform: scaleX(1.06);
+}
+.userDetail__icon--small {
+  font-size: 30px;
+  color: yellow;
   cursor: pointer;
 }
 .userDetail__icon:hover {

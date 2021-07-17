@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import "./Modal.css";
 import { useSpring, animated } from "react-spring";
-import { GiCancel } from "react-icons/gi";
+import { ImCross } from "react-icons/im";
 import { db } from "../firebase";
 
 import * as tf from "@tensorflow/tfjs";
@@ -34,11 +34,6 @@ export default function Modal({ setModal, modalData }) {
 
   const pauseAudio = () => {
     audioRef.current.pause();
-  };
-
-  const tensor = () => {
-    const modelUrl = "../";
-    console.log("Tensor");
   };
 
   const saveChannel = async (channel) => {
@@ -74,6 +69,7 @@ export default function Modal({ setModal, modalData }) {
             fileName: modalData.fileName,
             dateAnalyzed: new Date(),
           });
+
         await db
           .collection("users")
           .doc(userId)
@@ -94,6 +90,7 @@ export default function Modal({ setModal, modalData }) {
             fileName: modalData.fileName,
             dateAnalyzed: new Date(),
           });
+
         await db
           .collection("users")
           .doc(userId)
@@ -128,16 +125,10 @@ export default function Modal({ setModal, modalData }) {
           >
             Pause
           </button>
-          <button
-            onClick={() => tensor()}
-            className="modal__btn modal__btn--pause"
-          >
-            tensor
-          </button>
         </div>
         <div className="modal__right">
           <div className="modal__rightHeader">
-            <GiCancel
+            <ImCross
               onClick={() => setModal(false)}
               className="modal__cancel"
             />
