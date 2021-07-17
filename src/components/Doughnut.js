@@ -1,8 +1,69 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Doughnut.css";
 import { Doughnut } from "react-chartjs-2";
+import { db } from "../firebase";
 
 export default function DoughnutChart() {
+  const [wazobiaRecordings, setWazobiaRecordings] = useState([]);
+  const [cityRecordings, setCityRecordings] = useState([]);
+  const [hebronRecordings, setHebronRecordings] = useState([]);
+
+  useEffect(() => {
+    const getWazobiaRecordings = async () => {
+      try {
+        let snapShot = await db
+          .collection("Channels")
+          .doc("Wazobia")
+          .collection("AnalyzedRecordings")
+          .get();
+        let analyzedRecordings = snapShot.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data(),
+        }));
+        setWazobiaRecordings(analyzedRecordings);
+      } catch (errors) {
+        alert(errors);
+      }
+    };
+
+    const getCityRecordings = async () => {
+      try {
+        let snapShot = await db
+          .collection("Channels")
+          .doc("City")
+          .collection("AnalyzedRecordings")
+          .get();
+        let analyzedRecordings = snapShot.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data(),
+        }));
+        setCityRecordings(analyzedRecordings);
+      } catch (errors) {
+        alert(errors);
+      }
+    };
+
+    const getHebronRecordings = async () => {
+      try {
+        let snapShot = await db
+          .collection("Channels")
+          .doc("Hebron")
+          .collection("AnalyzedRecordings")
+          .get();
+        let analyzedRecordings = snapShot.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data(),
+        }));
+        setHebronRecordings(analyzedRecordings);
+      } catch (errors) {
+        alert(errors);
+      }
+    };
+
+    getWazobiaRecordings();
+    getCityRecordings();
+    getHebronRecordings();
+  }, []);
   return (
     <div className="doughnutChart">
       <p className="doughnutChart__header">Overview</p>
@@ -16,7 +77,11 @@ export default function DoughnutChart() {
             datasets: [
               {
                 label: "Radio channels Overview",
-                data: [50, 70, 20],
+                data: [
+                  wazobiaRecordings.length,
+                  cityRecordings.length,
+                  hebronRecordings.length,
+                ],
                 backgroundColor: ["#152238", "rgb(54, 162, 235)", "#851e3e"],
                 hoverOffset: 4,
               },

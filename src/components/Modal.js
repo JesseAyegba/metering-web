@@ -1,9 +1,16 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import "./Modal.css";
 import { useSpring, animated } from "react-spring";
 import { GiCancel } from "react-icons/gi";
+import { db } from "../firebase";
+
+import * as tf from "@tensorflow/tfjs";
+import { loadGraphModel } from "@tensorflow/tfjs-converter";
+import { denseBincount } from "@tensorflow/tfjs";
+import { useParams } from "react-router-dom";
 
 export default function Modal({ setModal, modalData }) {
+  let { userId } = useParams();
   const modalRef = useRef();
   const audioRef = useRef();
   const spring = useSpring({
@@ -29,6 +36,80 @@ export default function Modal({ setModal, modalData }) {
     audioRef.current.pause();
   };
 
+  const tensor = () => {
+    const modelUrl = "../";
+    console.log("Tensor");
+  };
+
+  const saveChannel = async (channel) => {
+    try {
+      if (channel === "wazobia") {
+        await db
+          .collection("Channels")
+          .doc("Wazobia")
+          .collection("AnalyzedRecordings")
+          .doc(modalData.fileName)
+          .set({
+            fileName: modalData.fileName,
+            dateAnalyzed: new Date(),
+          });
+
+        await db
+          .collection("users")
+          .doc(userId)
+          .collection("audioRecordings")
+          .doc(modalData.fileName)
+          .update({
+            isAnalyzed: true,
+          });
+        alert("Analysis Successful");
+        setModal(false);
+      } else if (channel === "city") {
+        await db
+          .collection("Channels")
+          .doc("City")
+          .collection("AnalyzedRecordings")
+          .doc(modalData.fileName)
+          .set({
+            fileName: modalData.fileName,
+            dateAnalyzed: new Date(),
+          });
+        await db
+          .collection("users")
+          .doc(userId)
+          .collection("audioRecordings")
+          .doc(modalData.fileName)
+          .update({
+            isAnalyzed: true,
+          });
+        alert("Analysis Successful");
+        setModal(false);
+      } else if (channel === "hebron") {
+        await db
+          .collection("Channels")
+          .doc("Hebron")
+          .collection("AnalyzedRecordings")
+          .doc(modalData.fileName)
+          .set({
+            fileName: modalData.fileName,
+            dateAnalyzed: new Date(),
+          });
+        await db
+          .collection("users")
+          .doc(userId)
+          .collection("audioRecordings")
+          .doc(modalData.fileName)
+          .update({
+            isAnalyzed: true,
+          });
+        alert("Analysis Successful");
+        setModal(false);
+      }
+    } catch (errors) {
+      alert(errors);
+    }
+  };
+
   return (
     <div ref={modalRef} onClick={(e) => hideModal(e)} className="modal">
       <animated.div style={spring} className="modal__square">
@@ -37,7 +118,7 @@ export default function Modal({ setModal, modalData }) {
             onClick={() => {
               analyzeAudio();
             }}
-            className="modal__btn"
+            className="modal__btn modal__analyze"
           >
             Analyze
           </button>
@@ -46,6 +127,12 @@ export default function Modal({ setModal, modalData }) {
             className="modal__btn modal__btn--pause"
           >
             Pause
+          </button>
+          <button
+            onClick={() => tensor()}
+            className="modal__btn modal__btn--pause"
+          >
+            tensor
           </button>
         </div>
         <div className="modal__right">
@@ -58,6 +145,26 @@ export default function Modal({ setModal, modalData }) {
           <div className="modal__rightContent">
             <h1 className="modal__rightFileName">{modalData.fileName}</h1>
             <audio loop ref={audioRef} src={modalData.fileUrl} />
+            <div className="modal__resultButtons">
+              <button
+                onClick={() => saveChannel("wazobia")}
+                className="modal__resultButton modal__resultButton--wazobia"
+              >
+                Wazobia FM
+              </button>
+              <button
+                onClick={() => saveChannel("city")}
+                className="modal__resultButton modal__resultButton--city"
+              >
+                City FM
+              </button>
+              <button
+                onClick={() => saveChannel("hebron")}
+                className="modal__resultButton modal__resultButton--hebron"
+              >
+                Hebron FM
+              </button>
+            </div>
           </div>
         </div>
       </animated.div>

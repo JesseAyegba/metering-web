@@ -25,8 +25,7 @@ export default function Landing() {
       </div>
       <div className="landing__hero">
         <div className="landing__heroText">
-          <h1>An Audience Measurement</h1>
-          <h1>Platform</h1>
+          <h1>AN AUDIENCE MEASUREMENT PLATFORM</h1>
           <Link to="/login/" exact>
             <button className="landing__btn">Admin Login</button>
           </Link>

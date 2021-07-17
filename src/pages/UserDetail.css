@@ -27,20 +27,20 @@
 }
 .userDetail__profile {
   text-align: center;
-  color: white;
+  color: var(--dark_purple);
   width: 400px;
   height: 400px;
-  background-color: var(--dark_blue);
+  background-color: white;
   border-radius: 4px;
   margin: 5px;
 }
-.userDetail__icon {
-  margin: 10px 0;
-  font-size: 300px;
+.userDetail__profileIcon {
+  margin-top: 40px;
+  font-size: 80px;
+  color: var(--dark_purple);
 }
 .userDetail__name {
   font-size: 40px;
-  margin: 10px 0;
 }
 .userDetail__email {
   font-size: 25px;

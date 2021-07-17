@@ -95,7 +95,7 @@ export default function UserDetail() {
       {loader ? null : (
         <div className="userDetail__hero">
           <div className="userDetail__profile">
-            <BsPersonFill className="userDetail__icon" />
+            <BsPersonFill className="userDetail__profileIcon" />
             <div className="userDetail__name">
               {userProfile.data.displayName}
             </div>
