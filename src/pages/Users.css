@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap");
+
 .users {
   min-height: 100vh;
   display: flex;
@@ -16,6 +18,7 @@
   margin: 15px 0;
   font-size: 25px;
   color: var(--dark_blue);
+  font-family: "Rubik", sans-serif;
 }
 .users__spinner {
   color: var(--light_blue);

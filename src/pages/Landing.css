@@ -123,6 +123,7 @@
   margin: 10px 0;
   font-size: 20px;
   color: rgb(48, 46, 46);
+  font-family: "Roboto", sans-serif;
 }
 @media (max-width: 998px) {
   .landing__card,
