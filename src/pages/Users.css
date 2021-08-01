@@ -18,7 +18,6 @@
   margin: 15px 0;
   font-size: 25px;
   color: var(--dark_blue);
-  font-family: "Rubik", sans-serif;
 }
 .users__spinner {
   color: var(--light_blue);
@@ -47,6 +46,7 @@
 }
 .users__detail p {
   flex: 1;
+  font-family: "Roboto", sans-serif;
 }
 .users__btn {
   font-size: 15px;

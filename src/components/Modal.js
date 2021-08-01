@@ -3,10 +3,6 @@ import "./Modal.css";
 import { useSpring, animated } from "react-spring";
 import { ImCross } from "react-icons/im";
 import { db } from "../firebase";
-
-import * as tf from "@tensorflow/tfjs";
-import { loadGraphModel } from "@tensorflow/tfjs-converter";
-import { denseBincount } from "@tensorflow/tfjs";
 import { useParams } from "react-router-dom";
 
 export default function Modal({ setModal, modalData }) {

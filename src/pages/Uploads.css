@@ -15,7 +15,6 @@
   margin: 15px 0;
   font-size: 25px;
   color: var(--dark_purple);
-  font-family: "Rubik", sans-serif;
 }
 .uploads__details {
   background-color: white;
@@ -41,6 +40,7 @@
 }
 .uploads__detail p {
   flex: 1;
+  font-family: "Roboto", sans-serif;
 }
 .uploads__btn {
   font-size: 15px;
