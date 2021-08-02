@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Learning.css";
 
 export default function Learning() {
-  const [results, setResults] = useState(null);
+  const [results, setResults] = useState([{}, {}, {}]);
 
   const tf = require("@tensorflow/tfjs");
   const speechCommands = require("@tensorflow-models/speech-commands");
@@ -42,6 +42,12 @@ export default function Learning() {
         const scores = result.scores; // probability of prediction for each class
         // render the probability scores per class
         for (let i = 0; i < classLabels.length; i++) {
+          let currentResults = results;
+          currentResults[i] = {
+            [classLabels[i]]: result.scores[i].toFixed(2),
+          };
+          console.log(currentResults);
+          setResults(currentResults);
           const classPrediction =
             classLabels[i] + ": " + result.scores[i].toFixed(2);
           labelContainer.childNodes[i].innerHTML = classPrediction;
@@ -63,6 +69,7 @@ export default function Learning() {
       <h1>Learning component</h1>
       <button onClick={() => init()}>Start</button>
       <div id="label-container"></div>
+      <h1>{JSON.stringify(results)}</h1>
     </div>
   );
 }

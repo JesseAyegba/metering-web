@@ -76,10 +76,10 @@ export default function Modal({ setModal, modalData }) {
           });
         alert("Analysis Successful");
         setModal(false);
-      } else if (channel === "hebron") {
+      } else if (channel === "raypower") {
         await db
           .collection("Channels")
-          .doc("Hebron")
+          .doc("Raypower")
           .collection("AnalyzedRecordings")
           .doc(modalData.fileName)
           .set({
@@ -146,10 +146,10 @@ export default function Modal({ setModal, modalData }) {
                 City FM
               </button>
               <button
-                onClick={() => saveChannel("hebron")}
+                onClick={() => saveChannel("raypower")}
                 className="modal__resultButton modal__resultButton--hebron"
               >
-                Hebron FM
+                Raypower FM
               </button>
             </div>
           </div>

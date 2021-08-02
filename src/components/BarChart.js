@@ -6,7 +6,7 @@ import { db } from "../firebase";
 export default function BarChart({ bg }) {
   const [wazobiaRecordings, setWazobiaRecordings] = useState([]);
   const [cityRecordings, setCityRecordings] = useState([]);
-  const [hebronRecordings, setHebronRecordings] = useState([]);
+  const [raypowerRecordings, setRaypowerRecordings] = useState([]);
 
   useEffect(() => {
     const getWazobiaRecordings = async () => {
@@ -43,18 +43,18 @@ export default function BarChart({ bg }) {
       }
     };
 
-    const getHebronRecordings = async () => {
+    const getRaypowerRecordings = async () => {
       try {
         let snapShot = await db
           .collection("Channels")
-          .doc("Hebron")
+          .doc("Raypower")
           .collection("AnalyzedRecordings")
           .get();
         let analyzedRecordings = snapShot.docs.map((doc) => ({
           id: doc.id,
           data: doc.data(),
         }));
-        setHebronRecordings(analyzedRecordings);
+        setRaypowerRecordings(analyzedRecordings);
       } catch (errors) {
         alert(errors);
       }
@@ -62,7 +62,7 @@ export default function BarChart({ bg }) {
 
     getWazobiaRecordings();
     getCityRecordings();
-    getHebronRecordings();
+    getRaypowerRecordings();
   }, []);
   return (
     <div style={{ backgroundColor: bg }} className="barChart">
@@ -87,14 +87,14 @@ export default function BarChart({ bg }) {
             },
           }}
           data={{
-            labels: ["WazobiaFM", "CityFM", "HebronFM"],
+            labels: ["WazobiaFM", "CityFM", "RaypowerFM"],
             datasets: [
               {
                 label: "Radio channels Overview",
                 data: [
                   wazobiaRecordings.length,
                   cityRecordings.length,
-                  hebronRecordings.length,
+                  raypowerRecordings.length,
                 ],
                 backgroundColor: ["#152238", "rgb(54, 162, 235)", "#851e3e"],
                 borderWidth: 1,
