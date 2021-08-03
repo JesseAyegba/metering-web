@@ -1,0 +1,22 @@
+.learning__btn {
+  display: block;
+  background-color: var(--dark_purple);
+  color: white;
+  font-size: 16px;
+  margin: 25px auto;
+  width: 90%;
+  height: 60px;
+  padding: 10px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s ease-in;
+}
+.learning__btn:hover {
+  transform: scale(1.01);
+}
+#learning__results div {
+  font-size: 20px;
+  text-align: center;
+}

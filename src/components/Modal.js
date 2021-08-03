@@ -4,11 +4,16 @@ import { useSpring, animated } from "react-spring";
 import { ImCross } from "react-icons/im";
 import { db } from "../firebase";
 import { useParams } from "react-router-dom";
+import Learning from "./Learning";
+import { useSelector, useDispatch } from "react-redux";
+import { predictionNotDone } from "../store/actions/predictionAction";
 
 export default function Modal({ setModal, modalData }) {
   let { userId } = useParams();
   const modalRef = useRef();
   const audioRef = useRef();
+  let prediction = useSelector((globalState) => globalState.predictionReducer);
+  let dispatch = useDispatch();
   const spring = useSpring({
     to: {
       opacity: 1,
@@ -20,6 +25,7 @@ export default function Modal({ setModal, modalData }) {
 
   const hideModal = (e) => {
     if (e.target === modalRef.current) {
+      dispatch(predictionNotDone());
       setModal(false);
     }
   };
@@ -106,52 +112,41 @@ export default function Modal({ setModal, modalData }) {
   return (
     <div ref={modalRef} onClick={(e) => hideModal(e)} className="modal">
       <animated.div style={spring} className="modal__square">
-        <div className="modal__left">
-          <button
-            onClick={() => {
-              analyzeAudio();
-            }}
-            className="modal__btn modal__analyze"
-          >
-            Analyze
-          </button>
-          <button
-            onClick={() => pauseAudio()}
-            className="modal__btn modal__btn--pause"
-          >
-            Pause
-          </button>
-        </div>
         <div className="modal__right">
           <div className="modal__rightHeader">
             <ImCross
-              onClick={() => setModal(false)}
+              onClick={() => {
+                dispatch(predictionNotDone());
+                setModal(false);
+              }}
               className="modal__cancel"
             />
           </div>
           <div className="modal__rightContent">
             <h1 className="modal__rightFileName">{modalData.fileName}</h1>
-            <audio loop ref={audioRef} src={modalData.fileUrl} />
-            <div className="modal__resultButtons">
-              <button
-                onClick={() => saveChannel("wazobia")}
-                className="modal__resultButton modal__resultButton--wazobia"
-              >
-                Wazobia FM
-              </button>
-              <button
-                onClick={() => saveChannel("city")}
-                className="modal__resultButton modal__resultButton--city"
-              >
-                City FM
-              </button>
-              <button
-                onClick={() => saveChannel("raypower")}
-                className="modal__resultButton modal__resultButton--hebron"
-              >
-                Raypower FM
-              </button>
-            </div>
+            <Learning modalData={modalData} />
+            {prediction ? (
+              <div className="modal__resultButtons">
+                <button
+                  onClick={() => saveChannel("wazobia")}
+                  className="modal__resultButton modal__resultButton--wazobia"
+                >
+                  Wazobia FM
+                </button>
+                <button
+                  onClick={() => saveChannel("city")}
+                  className="modal__resultButton modal__resultButton--city"
+                >
+                  City FM
+                </button>
+                <button
+                  onClick={() => saveChannel("raypower")}
+                  className="modal__resultButton modal__resultButton--hebron"
+                >
+                  Raypower FM
+                </button>
+              </div>
+            ) : null}
           </div>
         </div>
       </animated.div>

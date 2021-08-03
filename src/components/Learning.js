@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useRef } from "react";
+import { predictionReducer } from "../store/reducers/predictionReducer";
+import { useDispatch } from "react-redux";
 import "./Learning.css";
+import { predictionDone } from "../store/actions/predictionAction";
+const tf = require("@tensorflow/tfjs");
+const speechCommands = require("@tensorflow-models/speech-commands");
 
-export default function Learning() {
-  const [results, setResults] = useState([{}, {}, {}]);
-
-  const tf = require("@tensorflow/tfjs");
-  const speechCommands = require("@tensorflow-models/speech-commands");
-
-  const URL = "https://teachablemachine.withgoogle.com/models/JRf6XbzZr/";
+export default function Learning({ modalData }) {
+  const audioRef = useRef();
+  const URL = "https://teachablemachine.withgoogle.com/models/N4QJg-7Us/";
+  const dispatch = useDispatch();
 
   async function createModel() {
     const checkpointURL = URL + "model.json"; // model topology
@@ -29,7 +31,7 @@ export default function Learning() {
   async function init() {
     const recognizer = await createModel();
     const classLabels = recognizer.wordLabels(); // get class labels
-    const labelContainer = document.getElementById("label-container");
+    const labelContainer = document.getElementById("learning__results");
     for (let i = 0; i < classLabels.length; i++) {
       labelContainer.appendChild(document.createElement("div"));
     }
@@ -37,19 +39,14 @@ export default function Learning() {
     // listen() takes two arguments:
     // 1. A callback function that is invoked anytime a word is recognized.
     // 2. A configuration object with adjustable fields
+    audioRef.current.play();
     recognizer.listen(
       (result) => {
         const scores = result.scores; // probability of prediction for each class
         // render the probability scores per class
         for (let i = 0; i < classLabels.length; i++) {
-          let currentResults = results;
-          currentResults[i] = {
-            [classLabels[i]]: result.scores[i].toFixed(2),
-          };
-          console.log(currentResults);
-          setResults(currentResults);
           const classPrediction =
-            classLabels[i] + ": " + result.scores[i].toFixed(2);
+            classLabels[i] + ": " + (result.scores[i] * 100).toFixed(0) + "%";
           labelContainer.childNodes[i].innerHTML = classPrediction;
         }
       },
@@ -62,14 +59,20 @@ export default function Learning() {
     );
 
     // Stop the recognition in 5 seconds.
-    setTimeout(() => recognizer.stopListening(), 10000);
+    setTimeout(() => {
+      recognizer.stopListening();
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+      dispatch(predictionDone());
+    }, 5000);
   }
   return (
-    <div>
-      <h1>Learning component</h1>
-      <button onClick={() => init()}>Start</button>
-      <div id="label-container"></div>
-      <h1>{JSON.stringify(results)}</h1>
+    <div className="learning">
+      <button className="learning__btn" onClick={() => init()}>
+        Analyze
+      </button>
+      <div id="learning__results"></div>
+      <audio ref={audioRef} src={modalData.fileUrl} />
     </div>
   );
 }

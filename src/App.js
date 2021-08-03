@@ -9,7 +9,6 @@ import Users from "./pages/Users";
 import { useSelector } from "react-redux";
 import PageNotFound from "./pages/PageNotFound";
 import Landing from "./pages/Landing";
-import Learning from "./components/Learning";
 
 export default function App() {
   let auth = useSelector((globalState) => globalState.authReducer);
@@ -33,9 +32,6 @@ export default function App() {
         </Route>
         <Route exact path="/uploads/">
           {auth ? <Uploads /> : <Redirect to="/login/" />}
-        </Route>
-        <Route exact path="/learning/">
-          <Learning />
         </Route>
         <Route exact path="*">
           <PageNotFound />
